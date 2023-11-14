@@ -1,3 +1,5 @@
+source common.sh
+
 echo -e "\e[32m--------disable default mysql version-------\e[0m"
 dnf module disable mysql -y
 

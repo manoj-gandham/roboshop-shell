@@ -1,3 +1,5 @@
+source common.sh
+
 echo -e "\e[32m--------Configure YUM Repos-------\e[0m"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 

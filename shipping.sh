@@ -1,8 +1,10 @@
+source common.sh
+
 echo -e "\e[32m--------install maven-------\e[0m"
 dnf install maven -y
 
 echo -e "\e[32m--------Add application User-------\e[0m"
-useradd roboshop
+useradd ${app_user}
 
 echo -e "\e[32m--------setup app dir-------\e[0m"
 rm -rf /app
