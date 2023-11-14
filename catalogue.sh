@@ -22,6 +22,7 @@ echo "----------install dependencies---------"
 npm install
 
 echo "----------copy catalogue systemd service file ---------"
+cd /home/centos/roboshop-shell
 cp catalogue.service /etc/systemd/system/catalogue.service
 
 echo "----------start catalogue service---------"
