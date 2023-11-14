@@ -1,41 +1,41 @@
-echo "----------configure nodejs repos---------"
+echo -e "\e[32m--------configure nodejs repos-------\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-echo "----------install nodejs---------"
+echo -e "\e[32m--------install nodejs-------\e[0m"
 dnf install nodejs -y
 
-echo "----------add application user---------"
+echo -e "\e[32m--------add application user-------\e[0m"
 useradd roboshop
 
-echo "----------create application dir---------"
+echo -e "\e[32m--------create application dir-------\e[0m"
 rm -rf /app
 mkdir /app
 
-echo "----------download app content---------"
+echo -e "\e[32m--------download app content-------\e[0m"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
 cd /app
 
-echo "----------unzip app content---------"
+echo -e "\e[32m--------unzip app content-------\e[0m"
 unzip /tmp/catalogue.zip
 
-echo "----------install dependencies---------"
+echo -e "\e[32m--------install npm dependencies-------\e[0m"
 npm install
 
-echo "----------copy catalogue systemd service file ---------"
+echo -e "\e[32m--------copy catalogue systemd service file-------\e[0m"
 cd /home/centos/roboshop-shell
 cp catalogue.service /etc/systemd/system/catalogue.service
 
-echo "----------start catalogue service---------"
+echo -e "\e[32m--------start catalogue service-------\e[0m"
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl restart catalogue
 
-echo "----------copy mongo repo---------"
+echo -e "\e[32m--------copy mongo repo-------\e[0m"
 cp mongo.repo /etc/yum.repos.d/mongo.repo
 
-echo "----------install mongodb client---------"
+echo -e "\e[32m--------install momgodb client-------\e[0m"
 dnf install mongodb-org-shell -y
 
-echo "----------load scheema---------"
+echo -e "\e[32m--------load scheema-------\e[0m"
 mongo --host mongodb-dev.mdevops333.online </app/schema/catalogue.js
 
