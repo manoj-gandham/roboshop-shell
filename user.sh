@@ -22,8 +22,7 @@ echo -e "\e[32m--------Download npm-------\e[0m"
 npm install
 
 echo -e "\e[32m--------copy user systemd service file-------\e[0m"
-cd /home/centos/roboshop-shell
-cp user.service /etc/systemd/system/user.service
+cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
 
 echo -e "\e[32m--------start user service-------\e[0m"
 systemctl daemon-reload
