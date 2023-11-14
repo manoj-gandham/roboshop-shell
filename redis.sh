@@ -1,5 +1,6 @@
 echo -e "\e[32m--------install redis repo file-------\e[0m"
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+
 echo -e "\e[32m--------install redis-------\e[0m"
 dnf module enable redis:remi-6.2 -y
 dnf install redis -y
