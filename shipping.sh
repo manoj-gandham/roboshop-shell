@@ -1,6 +1,7 @@
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
+mysql_root_password=$1
 
 
 echo -e "\e[32m--------install maven-------\e[0m"
@@ -34,7 +35,7 @@ echo -e "\e[32m--------install mysql client-------\e[0m"
 dnf install mysql -y
 
 echo -e "\e[32m--------load sheema-------\e[0m"
-mysql -h mysql-dev.mdevops333.online -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h mysql-dev.mdevops333.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql
 
 echo -e "\e[32m--------start the shipping service-------\e[0m"
 systemctl enable shipping

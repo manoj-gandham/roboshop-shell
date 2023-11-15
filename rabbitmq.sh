@@ -1,6 +1,7 @@
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
+rabbitmq_app_password=$1
 
 echo -e "\e[32m--------Configure YUM Repos-------\e[0m"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
@@ -17,7 +18,7 @@ systemctl enable rabbitmq-server
 systemctl restart rabbitmq-server
 
 echo -e "\e[32m--------application user-------\e[0m"
-rabbitmqctl add_user roboshop roboshop123
+rabbitmqctl add_user roboshop ${rabbitmq_app_password}
 
 echo -e "\e[32m--------set_permissions for user-------\e[0m"
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
