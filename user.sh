@@ -6,7 +6,7 @@ component=user
 func_nodejs
 
 echo -e "\e[32m--------copy mongo repo-------\e[0m"
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}mongo.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[32m--------install mongodb-------\e[0m"
 dnf install mongodb-org-shell -y
