@@ -2,6 +2,9 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
+dnf module disable nodejs -y
+dnf module enable nodejs:18 -y
+
 component=user
 func_nodejs
 
