@@ -1,9 +1,6 @@
 script_path=$(dirname $0)
 source ${script_path}/common.sh
-echo ${script_path}
 
-
-exit
 echo -e "\e[32m--------install nodejs repo file-------\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
@@ -28,7 +25,7 @@ echo -e "\e[32m--------Download npm-------\e[0m"
 npm install
 
 echo -e "\e[32m--------copy user systemd service file-------\e[0m"
-cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
+cp $script_path/user.service /etc/systemd/system/user.service
 
 echo -e "\e[32m--------start user service-------\e[0m"
 systemctl daemon-reload
