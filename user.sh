@@ -1,6 +1,7 @@
+dirname $0
 source common.sh
 
-dirname $0
+
 
 exit
 echo -e "\e[32m--------install nodejs repo file-------\e[0m"
