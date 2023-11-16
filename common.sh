@@ -3,50 +3,50 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 
 print_head() {
-  echo -e "\e[35m--------$*-------\e[0m"
+  echo -e "\e[35m>>>>>>>>> $1 <<<<<<<<\e[0m"
 }
 
 schema_setup() {
   if [ "$schema_setup" == "mongo" ]; then
-  print_head "copy mongo repo"
-  cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
+    print_head "Copy MongoDB repo"
+    cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 
-  print_head "install momgodb client"
-  dnf install mongodb-org-shell -y
+    print_head "Install MongoDB Client"
+    yum install mongodb-org-shell -y
 
-  print_head "load scheema"
-  mongo --host mongodb-dev.mdevops333.online </app/schema/${component}.js
+    print_head "Load Schema"
+    mongo --host mongodb-dev.rdevopsb72.online </app/schema/${component}.js
   fi
 }
 
 func_nodejs() {
-  print_head "configure nodejs repos"
+  print_head "Configuring NodeJS repos"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-  print_head "install nodejs"
-  dnf install nodejs -y
+  print_head "Install NodeJS"
+  yum install nodejs -y
 
-  print_head "add application user"
+  print_head "Add Application User"
   useradd ${app_user}
 
-  print_head "create application dir"
+  print_head "Create Application Directory"
   rm -rf /app
   mkdir /app
 
-  print_head "download app content"
+  print_head "Download App Content"
   curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
   cd /app
 
-  print_head "unzip app content"
+  print_head "Unzip App Content"
   unzip /tmp/${component}.zip
 
-  print_head "install npm dependencies"
+  print_head "Install NodeJS Dependencies"
   npm install
 
-  print_head "copy catalogue systemd service file"
-  cp $script_path/${component}.service /etc/systemd/system/${component}.service
+  print_head "Create Application Directory"
+  cp ${script_path}/${component}.service /etc/systemd/system/${component}.service
 
-  print_head "start catalogue service"
+  print_head "Start Cart Service"
   systemctl daemon-reload
   systemctl enable ${component}
   systemctl restart ${component}
