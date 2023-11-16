@@ -15,7 +15,7 @@ schema_setup() {
     yum install mongodb-org-shell -y
 
     print_head "Load Schema"
-    mongo --host mongodb-dev.rdevopsb72.online </app/schema/${component}.js
+    mongo --host mongodb-dev.mdevops333.online </app/schema/${component}.js
   fi
 }
 
