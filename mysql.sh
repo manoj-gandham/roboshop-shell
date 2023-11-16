@@ -1,7 +1,6 @@
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
-mysql_user_pass=$1
 
 echo -e "\e[32m--------disable default mysql version-------\e[0m"
 dnf module disable mysql -y
@@ -17,4 +16,4 @@ systemctl enable mysqld
 systemctl restart mysqld
 
 echo -e "\e[32m--------reset mysql password-------\e[0m"
-mysql_secure_installation --set-root-pass ${mysql_user_pass}
+mysql_secure_installation --set-root-pass RoboShop@1
