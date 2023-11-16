@@ -3,6 +3,11 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_password=$1   # RoboShop@1
 
+if [ -z "$mysql_password" ]; then
+  echo password missing
+  exit
+fi
+
 echo -e "\e[32m--------disable default mysql version-------\e[0m"
 dnf module disable mysql -y
 

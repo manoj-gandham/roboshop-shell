@@ -3,6 +3,11 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_root_password=$1   # RoboShop@1
 
+if [ -z "$mysql_root_password" ]; then
+  echo password missing
+  exit
+fi
+
 echo -e "\e[36m>>>>>>>>> Install Maven <<<<<<<<\e[0m"
 yum install maven -y
 
