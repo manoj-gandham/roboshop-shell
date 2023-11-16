@@ -8,6 +8,7 @@ dnf module enable nodejs:18 -y
 
 component=user
 func_nodejs
+schema_setup=mongo
 
 
 
