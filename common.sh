@@ -3,7 +3,7 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 
 print_head() {
-  echo -e echo -e "\e[35m--------$*-------\e[0m"
+  echo -e "\e[35m--------$*-------\e[0m"
 }
 
 func_nodejs() {
