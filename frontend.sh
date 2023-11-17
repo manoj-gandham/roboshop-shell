@@ -10,7 +10,7 @@ func_ststus_check() {
 }
 dnf install nginx -y
 func_ststus_check
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp roboshop.conf /etc/nginx/default.d/roboshop.con
 func_ststus_check
 rm -rf /usr/share/nginx/html/*
 func_ststus_check
