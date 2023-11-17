@@ -33,5 +33,5 @@ func_ststus_check
 func_print_head "start nginx service"
 systemctl restart nginx
 systemctl enable nginx
-
+func_ststus_check
 
