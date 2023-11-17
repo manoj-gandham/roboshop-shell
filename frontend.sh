@@ -11,7 +11,7 @@ unzip /tmp/frontend.zip
 systemctl restart nginx
 systemctl enable nginx
 if [ $? -eq 0 ]; then
-  echo -e "\e[35mSUCESS\e[0m"
+  echo -e "\e[36mSUCESS\e[0m"
 else
-  echo -e "\e[32mERROR\e[0m"
+  echo -e "\e[31mERROR\e[0m"
 fi
