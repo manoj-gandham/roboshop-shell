@@ -9,7 +9,7 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.z
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 systemctl restart nginx
-systemctl enable nginx
+systemctl enabl nginx
 if [ $? -eq 0 ]; then
   echo -e "\e[35msucess\e[0m"
 else
