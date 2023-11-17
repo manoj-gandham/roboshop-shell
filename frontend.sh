@@ -6,7 +6,7 @@ func_ststus_check() {
     echo -e "\e[36mSUCESS\e[0m"
   else
     echo -e "\e[31mERROR\e[0m"
-    exit
+    exit 1
   fi
 }
 
