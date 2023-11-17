@@ -16,21 +16,27 @@ func_print_head() {
 func_print_head "install nginx"
 dnf install nginx -y
 func_ststus_check
+
 func_print_head "copt roboshop conf file"
 cp roboshop.conf /etc/nginx/default.d/roboshop.conf
 func_ststus_check
+
 func_print_head "remove nginx html content"
 rm -rf /usr/share/nginx/html/*
 func_ststus_check
+
 func_print_head "get frontend zip file"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
 func_ststus_check
+
 func_print_head "remove old content"
 cd /usr/share/nginx/html
 func_ststus_check
+
 func_print_head "unzip content"
 unzip /tmp/frontend.zip
 func_ststus_check
+
 func_print_head "start nginx service"
 systemctl restart nginx
 systemctl enable nginx
