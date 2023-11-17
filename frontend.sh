@@ -1,15 +1,6 @@
 script_path=$(dirname $0)
 source ${script_path}/common.sh
 
-func_status_check() {
-  if [ $1 -eq 0 ]; then
-    echo -e "\e[36mSUCESS\e[0m"
-  else
-    echo -e "\e[31mERROR\e[0m"
-    exit 1
-  fi
-}
-
 func_print_head() {
   echo -e "\e[35m>>>>>>>>> $1 <<<<<<<<\e[0m"
 }
