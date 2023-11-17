@@ -17,7 +17,7 @@ func_print_head "install nginx"
 dnf install nginx -y
 func_ststus_check $?
 
-func_print_head "copt roboshop conf file"
+func_print_head "copy roboshop conf file"
 cp roboshop.conf /etc/nginx/default.d/roboshop.conf
 func_ststus_check $?
 
