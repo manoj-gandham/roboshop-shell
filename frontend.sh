@@ -16,7 +16,7 @@ func_print_head "install nginx"
 dnf install nginx -y
 func_ststus_check
 func_print_head "copt roboshop conf file"
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp roboshop.conf /et/nginx/default.d/roboshop.conf
 func_ststus_check
 func_print_head "remove nginx html content"
 rm -rf /usr/share/nginx/html/*
