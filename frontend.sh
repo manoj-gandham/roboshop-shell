@@ -10,7 +10,7 @@ dnf install nginx -y &>>$log_file
 func_status_check $?
 
 func_print_head "copy roboshop conf file"
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$log_file
+cp roboshop.conf /et/nginx/default.d/roboshop.conf &>>$log_file
 func_status_check $?
 
 func_print_head "remove nginx html content"

@@ -11,6 +11,7 @@ func_status_check() {
     echo -e "\e[36mSUCESS\e[0m"
   else
     echo -e "\e[31mERROR\e[0m"
+    echo "refer the log file for more info"
     exit 1
   fi
 }
