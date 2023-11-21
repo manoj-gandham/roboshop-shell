@@ -1,6 +1,5 @@
 script_path=$(dirname $0)
 source ${script_path}/common.sh
-log_file=/tmp/roboshop.log
 
 func_print_head() {
   echo -e "\e[35m>>>>>>>>> $1 <<<<<<<<\e[0m"
