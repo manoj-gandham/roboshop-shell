@@ -117,31 +117,19 @@ func_java() {
 
 func_python() {
   func_print_head "Install Python"
-  yum install python36 gcc python3-devel -y
+  yum install python36 gcc python3-devel -y &>>$log_file
+  func_status_check $?
 
-  Install Python "Add Application User"
-  useradd ${app_user}
+  func_app_prereq
 
-  Install Python "Create App Dir"
-  rm -rf /app
-  mkdir /app
+  func_print_head "Install python Dependencies"
+  pip3.6 install -r requirements.txt &>>$log_file
+  func_status_check $?
 
-  Install Python "Download App Content"
-  curl -L -o /tmp/payment.zip https://roboshop-artifacts.s3.amazonaws.com/payment.zip
+  func_print_head "update password in system service file"
+  sed -i -e "s|rabbitmq_appuser_password|${rabbitmq_appuser_password}|" ${script_path}/payment.service &>>$log_file
+  func_status_check $?
 
-  Install Python "Extract App Content"
-  cd /app
-  unzip /tmp/payment.zip
+  func_systemd_setup
 
-  Install Python "Install Dependencies"
-  pip3.6 install -r requirements.txt
-
-  Install Python "Setup SystemD Service"
-  sed -i -e "s|rabbitmq_appuser_password|${rabbitmq_appuser_password}|" ${script_path}/payment.service
-  cp ${script_path}/payment.service /etc/systemd/system/payment.service
-
-  Install Python "Start Payment Service"
-  systemctl daemon-reload
-  systemctl enable payment
-  systemctl restart payment
 }
