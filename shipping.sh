@@ -5,7 +5,7 @@ mysql_root_password=$1   # RoboShop@1
 
 if [ -z "$mysql_root_password" ]; then
   echo password missing
-  exit
+  exit 1
 fi
 component="shipping"
 schema_setup=mysql

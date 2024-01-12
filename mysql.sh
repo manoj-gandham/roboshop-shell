@@ -5,7 +5,7 @@ mysql_password=$1   # RoboShop@1
 
 if [ -z "$mysql_password" ]; then
   echo password missing
-  exit
+  exit 1
 fi
 
 func_print_head "disable default mysql version"
