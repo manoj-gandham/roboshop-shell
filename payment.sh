@@ -5,7 +5,7 @@ rabbitmq_appuser_password=$1  # roboshop123
 
 if [ -z "$rabbitmq_appuser_password" ]; then
   echo password missing
-  exit
+  exit 1
 fi
 component=payment
 func_python
